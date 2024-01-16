@@ -4,6 +4,7 @@ const path = require("path");
 const businessRouter = require("./routes/businessRoutes");
 const reviewRouter = require("./routes/reviewRoutes");
 const sboRatingRoutes = require("./routes/sboRatingRoutes");
+require("dotenv").config();
 
 const app = express();
 
@@ -15,7 +16,7 @@ app.use(
 );
 
 mongoose
-  .connect("mongodb+srv://yusuf:yusuf@cluster0.4lthi.mongodb.net/")
+  .connect(process.env.DBURI)
   .then(() => {
     console.log("Successfully connected to MongoDB Atlas!");
   })
