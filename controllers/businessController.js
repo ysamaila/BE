@@ -89,10 +89,11 @@ exports.modifyBusiness = (req, res, next) => {
     warrantyAvailable: req.body.warrantyAvailable,
     telephone: req.body.telephone,
   });
-  Thing.updateOne({ _id: req.params.id }, thing)
+  Business.updateOne({ _id: req.params.id }, business)
     .then(() => {
       res.status(201).json({
-        message: "Thing updated successfully!",
+        business,
+        message: "Business updated successfully!",
       });
     })
     .catch((error) => {
