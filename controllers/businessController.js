@@ -74,3 +74,30 @@ exports.getAllBusiness = (req, res, next) => {
       });
     });
 };
+
+exports.modifyBusiness = (req, res, next) => {
+  //updating one item in the collection usiing the ID
+  const business = new Business({
+    _id: req.params.id,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    businessName: req.body.businessName,
+    nin: req.body.nin,
+    cac: req.body.cac,
+    yearsOfOperation: req.body.yearsOfOperation,
+    address: req.body.address,
+    warrantyAvailable: req.body.warrantyAvailable,
+    telephone: req.body.telephone,
+  });
+  Thing.updateOne({ _id: req.params.id }, thing)
+    .then(() => {
+      res.status(201).json({
+        message: "Thing updated successfully!",
+      });
+    })
+    .catch((error) => {
+      res.status(400).json({
+        error: error,
+      });
+    });
+};

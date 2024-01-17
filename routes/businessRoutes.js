@@ -9,4 +9,6 @@ router.post("/", businessController.addBusiness);
 
 router.get("/:id", businessController.getOneBusiness);
 
+router.post("/:id", businessController.modifyBusiness);
+
 module.exports = router;
