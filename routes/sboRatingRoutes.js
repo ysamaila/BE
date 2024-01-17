@@ -3,6 +3,8 @@ const router = express.Router();
 
 const sboRatingController = require("../controllers/sboRatingController");
 
+router.get("/", sboRatingController.getAllSboRatings);
+
 router.post("/", sboRatingController.addSboRating);
 
 router.get("/:id", sboRatingController.getOneSboRating);

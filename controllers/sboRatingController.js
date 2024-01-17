@@ -50,3 +50,16 @@ exports.modifySboRating = (req, res, next) => {
       });
     });
 };
+
+exports.getAllSboRatings = (req, res, next) => {
+  //fetching all items from the database
+  SboRating.find()
+    .then((sboRatings) => {
+      res.status(200).json(sboRatings);
+    })
+    .catch((error) => {
+      res.status(400).json({
+        error: error,
+      });
+    });
+};

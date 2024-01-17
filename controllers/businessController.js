@@ -44,6 +44,7 @@ exports.addBusiness = (req, res, next) => {
     .then(() => {
       sboRating.save().then(() => {
         res.status(201).json({
+          business,
           message: "Business and sbo rating added successfully!",
         });
       });
@@ -59,4 +60,17 @@ exports.getOneBusiness = (req, res, next) => {
   Business.findOne({ _id: req.params.id })
     .then((business) => res.status(200).json(business))
     .catch((error) => res.status(404).json({ error: error }));
+};
+
+exports.getAllBusiness = (req, res, next) => {
+  //fetching all items from the database
+  Business.find()
+    .then((businesses) => {
+      res.status(200).json(businesses);
+    })
+    .catch((error) => {
+      res.status(400).json({
+        error: error,
+      });
+    });
 };

@@ -54,3 +54,16 @@ exports.modifyReview = (req, res, next) => {
       });
     });
 };
+
+exports.getAllReviews = (req, res, next) => {
+  //fetching all items from the database
+  Review.find()
+    .then((reviewRoutes) => {
+      res.status(200).json(reviews);
+    })
+    .catch((error) => {
+      res.status(400).json({
+        error: error,
+      });
+    });
+};
