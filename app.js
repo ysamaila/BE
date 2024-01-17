@@ -45,5 +45,10 @@ app.use((req, res, next) => {
 app.use("/api/business", businessRouter);
 app.use("/api/review", reviewRouter);
 app.use("/api/sbo", sboRatingRoutes);
+app.use("/", (req, res) => {
+  res.json({
+    Message: "Welcome to SBO Backend Service!",
+  });
+});
 
 module.exports = app;
