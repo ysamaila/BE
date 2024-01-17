@@ -58,7 +58,7 @@ exports.modifyReview = (req, res, next) => {
 exports.getAllReviews = (req, res, next) => {
   //fetching all items from the database
   Review.find()
-    .then((reviewRoutes) => {
+    .then((reviews) => {
       res.status(200).json(reviews);
     })
     .catch((error) => {
